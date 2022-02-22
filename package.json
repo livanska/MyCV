@@ -1,0 +1,28 @@
+{
+  "name": "my-cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livanska/MyCV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/livanska/MyCV/issues"
+  },
+  "homepage": "https://github.com/livanska/MyCV#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.69.1",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "dependencies": {
+    "webpack-cli": "^4.9.2"
+  }
+}
