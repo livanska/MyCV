@@ -24,6 +24,7 @@
     background-image: url("./../../assets/images/profile-image.png");
     border-bottom-right-radius: 13px;
     border-bottom-left-radius: 13px;
+    transition: all 0.5s ease-in-out;
   }
 
   > .header__element {
@@ -33,6 +34,13 @@
     background-repeat: no-repeat;
     background-image: url("./../../assets/images/header-element.png");
     z-index: 2;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      transition: 0s;
+      + .header__image {
+        transition: 0s;
+      }
+    }
   }
 }
 

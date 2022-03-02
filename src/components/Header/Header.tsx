@@ -31,19 +31,24 @@ export default class Header extends React.Component<
   }
 
   componentDidMount() {
-    window.innerWidth > PARALLAX_LIMIT_WIDTH &&
+    if (window.innerWidth > PARALLAX_LIMIT_WIDTH) {
       this.headerElement.addEventListener("mousemove", (e: MouseEvent) =>
         this.parallax(e)
       );
-
-    this.headerElement.addEventListener("mouseleave", this.toInitialPosition);
+      this.headerElement.addEventListener("mouseleave", this.toInitialPosition);
+    }
   }
 
   componentWillUnmount() {
-    window.innerWidth > PARALLAX_LIMIT_WIDTH &&
+    if (window.innerWidth > PARALLAX_LIMIT_WIDTH) {
       this.headerElement.removeEventListener("mousemove", (e: MouseEvent) =>
         this.parallax(e)
       );
+      this.headerElement.removeEventListener(
+        "mouseleave",
+        this.toInitialPosition
+      );
+    }
   }
 
   toInitialPosition = (): void => {
@@ -95,12 +100,12 @@ export default class Header extends React.Component<
         </div>
         <div className={style.header__imageContainer}>
           <div
-            style={{ backgroundPosition: this.state.imagePosition }}
-            className={style.header__image}
-          />
-          <div
             style={{ backgroundPosition: this.state.elementsPosition }}
             className={style.header__element}
+          />
+          <div
+            style={{ backgroundPosition: this.state.imagePosition }}
+            className={style.header__image}
           />
         </div>
       </div>
