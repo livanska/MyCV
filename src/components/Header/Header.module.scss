@@ -1,0 +1,56 @@
+@import "./../../styles/colors.scss";
+
+.header {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  background-color: white;
+  border-bottom-right-radius: 13px;
+  border-bottom-left-radius: 13px;
+  justify-content: center;
+  z-index: 1;
+}
+
+.header__imageContainer {
+  height: 100%;
+  display: flex;
+
+  > .header__image {
+    height: auto;
+    width: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 100%;
+    background-image: url("./../../assets/images/profile-image.png");
+    border-bottom-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+  }
+
+  > .header__element {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-image: url("./../../assets/images/header-element.png");
+    z-index: 2;
+  }
+}
+
+.header__textContainer {
+  height: 70%;
+  margin-left: 5%;
+  justify-content: center;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  z-index: 3;
+
+  > .header__subtitle {
+    font-size: 20px;
+  }
+  > .header__title {
+    font-size: 90px;
+    margin: 0;
+  }
+}

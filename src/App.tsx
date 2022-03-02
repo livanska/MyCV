@@ -1,9 +1,12 @@
 import React from "react";
 import "./style.scss";
-const App = () => (
-  <>
-    <p>Custom configs</p>
-  </>
-);
-
-export default App;
+import Profile from "./components/Profile/Profile";
+export default class App extends React.Component {
+  render(): React.ReactNode {
+    return (
+      <div className="App">
+        <Profile />
+      </div>
+    );
+  }
+}
