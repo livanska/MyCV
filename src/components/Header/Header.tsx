@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Header.module.scss";
-
+import Navbar from "./../Navbar/Navbar";
 interface IHeaderProps {
   currentScrollPosition: number;
 }
@@ -94,9 +94,12 @@ export default class Header extends React.Component<
         className={style.header}
         ref={(elem: HTMLDivElement) => (this.headerElement = elem)}
       >
-        <div className={style.header__textContainer}>
-          <h1 className={style.header__title}>Liliia Ivanska</h1>
-          <h6 className={style.header__subtitle}>Front-End Developer</h6>
+        <div className={style.header__infoContainer}>
+          <div className={style.header__textContainer}>
+            <h1 className={style.header__title}>Liliia Ivanska</h1>
+            <h6 className={style.header__subtitle}>Front-End Developer</h6>
+          </div>
+          <Navbar />
         </div>
         <div className={style.header__imageContainer}>
           <div
