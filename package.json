@@ -2,7 +2,8 @@
   "name": "my-cv",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.tsx",
+
   "scripts": {
     "build": "webpack --mode-production",
     "start": "webpack-dev-server --open --mode development",
@@ -18,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/livanska/MyCV/issues"
   },
-  "homepage": "https://github.com/livanska/MyCV#readme",
+  "homepage": "https://github.com/livanska/MyCV",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
