@@ -8,7 +8,7 @@
       "allowJs": true,
     },
     "include": [
-        "index.tsx",
+        "src/index.tsx",
         "declarations.d.ts"
       ]
   }
