@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/livanska/MyCV/issues"
   },
-  "homepage": "https://github.com/livanska/MyCV",
+  "homepage": "https://livanska.github.io/MyCV/",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
