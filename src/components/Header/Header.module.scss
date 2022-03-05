@@ -1,18 +1,28 @@
-@import "./../../styles/colors.scss";
+@import "./../../styles/dependencies.scss";
 
 .header {
+  height: 500px;
   width: 100%;
-  height: 50%;
   position: absolute;
-  background-color: white;
+  background-color: $white;
   border-bottom-right-radius: 13px;
   border-bottom-left-radius: 13px;
   justify-content: center;
   z-index: 1;
+  transition: all 0.6s ease-in-out;
+  @include forPhoneOnly {
+    height: 480px;
+    position: absolute;
+  }
 }
 
 .header__imageContainer {
   height: 100%;
+  @include forPhoneOnly {
+    background-color: $white;
+    border-bottom-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+  }
   display: flex;
 
   > .header__image {
@@ -20,14 +30,19 @@
     width: 100%;
     background-repeat: no-repeat;
     position: relative;
-    height: 100%;
     background-image: url("./../../assets/images/profile-image.png");
     border-bottom-right-radius: 13px;
     border-bottom-left-radius: 13px;
     transition: all 0.5s ease-in-out;
+    @include forPhoneOnly {
+      background-position: 100% 30%, 100% 50%, 100% 50%;
+    }
   }
 
   > .header__element {
+    @include forTabletAndPhone {
+      display: none;
+    }
     position: absolute;
     height: 100%;
     width: 100%;
@@ -45,8 +60,13 @@
 }
 
 .header__infoContainer {
-  height: 90%;
-  margin-left: 5%;
+  height: 100%;
+  @include forPhoneOnly {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -55,15 +75,33 @@
 }
 
 .header__textContainer {
+  @include forPhoneOnly {
+    position: absolute;
+    max-width: 60%;
+    left: 0;
+    bottom: 8%;
+    color: $pink;
+  }
+  color: $black;
+  margin-left: 5%;
   display: flex;
   flex-direction: column;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
   > .header__subtitle {
     font-size: 20px;
+    @include forPhoneOnly {
+      color: $white;
+    }
   }
   > .header__title {
     font-size: 90px;
     margin: 0;
+    @include forPhoneOnly {
+      line-height: 45px;
+      color: $white;
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
   }
 }

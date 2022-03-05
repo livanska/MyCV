@@ -1,41 +1,81 @@
-@import "./../../styles/colors.scss";
-@import "./../../styles/animations.scss";
+@import "./../../styles/dependencies.scss";
+
 .navbar {
-  width: 100%;
-  height: 20%;
+  @include forTabletAndDesktop {
+    margin-left: 5%;
+    height: 20%;
+    gap: 2%;
+    width: 100%;
+    overflow: visible;
+  }
+  @include forPhoneOnly {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    align-items: flex-end;
+    height: 100%;
+    flex-direction: column;
+    border-bottom-right-radius: 13px;
+    overflow: hidden;
+  }
   display: flex;
-  gap: 2%;
-  overflow: visible;
 }
 
 .navbarItem {
-  display: flex;
+  @include forPhoneOnly {
+    column-gap: 8%;
+    height: 100%;
+    padding-left: 2%;
+    border-left: 5px solid transparent;
+    justify-content: flex-start;
+    padding-right: 4%;
+    width: 100%;
+    max-width: 130px;
+  }
+
+  display: inline-flex;
   background-color: $semiTransparentWhite;
-  border-radius: 35px;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  &:not(:hover) {
+  &:hover {
+    @include forPhoneOnly {
+      border-left: 5px solid $pinkDark;
+    }
     > .navbarItem__textContainer {
-      animation: 0.3s ease-in-out forwards shrink;
       > .navbarItem__text {
-        animation: 0.3s ease-in-out forwards fadeOut;
+        color: $pinkDark;
       }
     }
   }
 
-  &:hover {
-    > .navbarItem__textContainer {
-      pointer-events: none;
-      padding-left: 10px;
-      margin-right: 20px;
-      animation: 0.3s ease-in-out forwards widen;
-      > .navbarItem__text {
-        animation: 0.3s ease-in-out forwards fadeIn;
+  @include forTabletAndDesktop {
+    justify-content: center;
+    border-radius: 50px;
+    &:not(:hover) {
+      min-width: 100px;
+      border-radius: 55px;
+      > .navbarItem__textContainer {
+        animation: 0.3s ease-in-out forwards shrink;
+        > .navbarItem__text {
+          animation: 0.3s ease-in-out forwards fadeOut;
+        }
       }
     }
-    > .navbarItem__icon {
-      margin-left: 30px;
+    &:hover {
+      > .navbarItem__textContainer {
+        pointer-events: none;
+        padding-left: 10px;
+        margin-right: 20px;
+        padding-right: 10px;
+        animation: 0.3s ease-in-out forwards widen;
+        > .navbarItem__text {
+          animation: 0.3s ease-in-out forwards fadeIn;
+        }
+      }
+
+      > .navbarItem__icon {
+        margin-left: 30px;
+      }
     }
   }
 }
@@ -43,12 +83,15 @@
 .navbarItem__icon {
   transition: all 0.3s ease-in-out;
   height: 40%;
-  width: 100%;
+  width: 50%;
+  @include forPhoneOnly {
+    width: auto;
+    height: 30%;
+  }
 }
 
 .navbarItem__textContainer {
   padding-left: 0px;
-  width: 0%;
   pointer-events: none;
   height: 100%;
   margin-right: 0px;
@@ -56,12 +99,29 @@
   text-align: center;
   display: flex;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  transition: all 0.3s ease-in-out;
+  @include forTabletAndDesktop {
+    transition: all 0.3s ease-in-out;
+    width: 0%;
+  }
+  @include forPhoneOnly {
+    width: max-content;
+    justify-content: flex-start;
+  }
 }
 
 .navbarItem__text {
-  transition: all 0.6s ease-in-out;
+  @include forTabletAndDesktop {
+    transition: all 0.6s ease-in-out;
+    font-weight: bold;
+  }
   overflow: hidden;
   display: inline-block;
   opacity: 0;
+  color: $black;
+  font-weight: bold;
+
+  @include forPhoneOnly {
+    opacity: 1;
+    font-size: 14px;
+  }
 }

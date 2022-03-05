@@ -1,19 +1,20 @@
 import React from "react";
 import style from "./Header.module.scss";
 import Navbar from "./../Navbar/Navbar";
+import { SCREEN_SIZES } from "../../utils/constants";
 interface IHeaderProps {
-  currentScrollPosition: number;
+  shouldShowHeader: boolean;
 }
 
 interface IHeaderState {
   imagePosition: string;
-  shouldShowHeader: boolean;
   elementsPosition: string;
 }
 
 const DEFAULT_IMAGE_POSITION = "100% 50%, 100% 50%, 100% 50%";
-const DEFAULT_ELEMENT_POSITION = "  98% 50%,  100% 50%, 100% 50%";
+const DEFAULT_ELEMENT_POSITION = "  85% 50%,  100% 50%, 100% 50%";
 const PARALLAX_LIMIT_WIDTH = 900;
+const MOBILE_HEADER_HEIGHT = 450;
 
 export default class Header extends React.Component<
   IHeaderProps,
@@ -26,7 +27,6 @@ export default class Header extends React.Component<
     this.state = {
       imagePosition: DEFAULT_IMAGE_POSITION,
       elementsPosition: DEFAULT_ELEMENT_POSITION,
-      shouldShowHeader: props.currentScrollPosition < 50,
     };
   }
 
@@ -74,7 +74,7 @@ export default class Header extends React.Component<
     const depth3ImageParam = 100;
 
     const depth3ElemParam =
-      depth3Param > 140 ? 140 : depth3Param < 90 ? 90 : depth3Param;
+      (depth3Param > 140 ? 140 : depth3Param < 90 ? 90 : depth3Param) - 10;
 
     const depth3 = `${depth3ElemParam}% ${50 - (mouseY - height) * 0.02}%`;
 
@@ -92,6 +92,9 @@ export default class Header extends React.Component<
     return (
       <div
         className={style.header}
+        style={{
+          top: this.props.shouldShowHeader ? 0 : -MOBILE_HEADER_HEIGHT,
+        }}
         ref={(elem: HTMLDivElement) => (this.headerElement = elem)}
       >
         <div className={style.header__infoContainer}>
@@ -103,11 +106,19 @@ export default class Header extends React.Component<
         </div>
         <div className={style.header__imageContainer}>
           <div
-            style={{ backgroundPosition: this.state.elementsPosition }}
+            style={{
+              backgroundPosition: this.state.elementsPosition,
+            }}
             className={style.header__element}
           />
           <div
-            style={{ backgroundPosition: this.state.imagePosition }}
+            style={
+              window.innerWidth > SCREEN_SIZES.maxPhoneWidth
+                ? {
+                    backgroundPosition: this.state.imagePosition,
+                  }
+                : {}
+            }
             className={style.header__image}
           />
         </div>

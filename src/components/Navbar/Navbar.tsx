@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, Bag, GraphBar, Telescope, Email } from "./../../utils/icons";
+import {
+  Box,
+  Bag,
+  GraphBar,
+  Telescope,
+  Email,
+  Study,
+} from "./../../utils/icons";
 import style from "./Navbar.module.scss";
 import { SECTION_TITLES } from "./../../utils/constants";
 
@@ -14,12 +21,16 @@ const NAVBAR_ITEMS: INavbarItem[] = [
     title: SECTION_TITLES.skills,
   },
   {
-    icon: Bag,
-    title: SECTION_TITLES.expeAndEduc,
+    icon: Study,
+    title: SECTION_TITLES.education,
   },
   {
     icon: Box,
     title: SECTION_TITLES.projects,
+  },
+  {
+    icon: Bag,
+    title: SECTION_TITLES.experience,
   },
   {
     icon: Telescope,

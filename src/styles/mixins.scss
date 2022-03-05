@@ -1,0 +1,28 @@
+@mixin forDesktopOnly {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin forTabletAndDesktop {
+  @media only screen and (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin forTabletOnly {
+  @media only screen and (min-width: 600px) and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin forTabletAndPhone {
+  @media only screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin forPhoneOnly {
+  @media only screen and(max-width: 600px) {
+    @content;
+  }
+}

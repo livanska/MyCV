@@ -7,3 +7,8 @@ export enum SECTION_TITLES {
   interests = "Interests",
   contacts = "Contacts",
 }
+
+export enum SCREEN_SIZES {
+  maxPhoneWidth = 600,
+  minDesktopWidth = 1200,
+}
