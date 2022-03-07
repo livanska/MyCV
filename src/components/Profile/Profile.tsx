@@ -1,7 +1,8 @@
 import React from "react";
 import style from "./Profile.module.scss";
 import Header from "./../Header/Header";
-import { SCREEN_SIZES } from "../../utils/constants";
+import { IS_MOBILE } from "../../utils/constants";
+import Section from "./../Section/Section";
 const HEADER_HIDE_SCROLL_POSITION = 10;
 interface ProfileState {
   currentScrollPosition: number;
@@ -33,8 +34,8 @@ export default class Profile extends React.Component<{}, ProfileState> {
   }
 
   shouldShowHeader = (): boolean =>
-    window.innerWidth > SCREEN_SIZES.maxPhoneWidth ||
-    (window.innerWidth <= SCREEN_SIZES.maxPhoneWidth &&
+    !IS_MOBILE ||
+    (IS_MOBILE &&
       this.state.currentScrollPosition < HEADER_HIDE_SCROLL_POSITION);
 
   render(): React.ReactNode {
@@ -45,7 +46,10 @@ export default class Profile extends React.Component<{}, ProfileState> {
           ref={(elem: HTMLDivElement) => (this.BackgroundElement = elem)}
         >
           <Header shouldShowHeader={this.shouldShowHeader()} />
-          <div className={style.glassPanel}></div>
+          <div className={style.glassPanel}>
+            <Section title="lllll">
+            </Section>
+          </div>
         </div>
       </>
     );

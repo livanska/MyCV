@@ -5,50 +5,60 @@
   width: 100%;
   position: absolute;
   background-color: $white;
+  justify-content: center;
   border-bottom-right-radius: 13px;
   border-bottom-left-radius: 13px;
-  justify-content: center;
   z-index: 1;
   transition: all 0.6s ease-in-out;
   @include forPhoneOnly {
     height: 480px;
-    position: absolute;
   }
 }
 
 .header__imageContainer {
   height: 100%;
+  overflow: visible;
   @include forPhoneOnly {
+    overflow: hidden;
     background-color: $white;
     border-bottom-right-radius: 13px;
     border-bottom-left-radius: 13px;
   }
+
   display: flex;
 
   > .header__image {
     height: auto;
+    z-index: 2;
     width: 100%;
     background-repeat: no-repeat;
-    position: relative;
     background-image: url("./../../assets/images/profile-image.png");
     border-bottom-right-radius: 13px;
-    border-bottom-left-radius: 13px;
     transition: all 0.5s ease-in-out;
+    background-position: 100% 50%, 100% 50%, 100% 50%;
+    @include forTabletAndDesktop {
+      height: 500px;
+      z-index: 3;
+    }
     @include forPhoneOnly {
       background-position: 100% 30%, 100% 50%, 100% 50%;
     }
   }
 
   > .header__element {
-    @include forTabletAndPhone {
+    background-position: 85% 50%, 100% 50%, 100% 50%;
+    @include forPhoneOnly {
       display: none;
     }
     position: absolute;
+    @include forTabletAndDesktop {
+      top: -90px;
+    }
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
     background-image: url("./../../assets/images/header-element.png");
-    z-index: 2;
+    z-index: 1;
     transition: all 0.5s ease-in-out;
     &:hover {
       transition: 0s;
@@ -67,10 +77,14 @@
     flex-direction: row;
     justify-content: flex-end;
   }
+  @include forTabletAndDesktop {
+    z-index: 4;
+  }
+  justify-content: center;
+  width: 100%;
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   z-index: 3;
 }
 
@@ -82,6 +96,10 @@
     bottom: 8%;
     color: $pink;
   }
+  @include forTabletAndDesktop {
+    padding-bottom: 100px;
+  }
+  max-width: 60%;
   color: $black;
   margin-left: 5%;
   display: flex;

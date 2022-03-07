@@ -1,20 +1,13 @@
 import React from "react";
 import style from "./Header.module.scss";
 import Navbar from "./../Navbar/Navbar";
-import { SCREEN_SIZES } from "../../utils/constants";
 interface IHeaderProps {
   shouldShowHeader: boolean;
 }
 
-interface IHeaderState {
-  imagePosition: string;
-  elementsPosition: string;
-}
+interface IHeaderState {}
 
-const DEFAULT_IMAGE_POSITION = "100% 50%, 100% 50%, 100% 50%";
-const DEFAULT_ELEMENT_POSITION = "  85% 50%,  100% 50%, 100% 50%";
-const PARALLAX_LIMIT_WIDTH = 900;
-const MOBILE_HEADER_HEIGHT = 450;
+export const MOBILE_HEADER_HEIGHT = 480;
 
 export default class Header extends React.Component<
   IHeaderProps,
@@ -24,70 +17,8 @@ export default class Header extends React.Component<
 
   constructor(props) {
     super(props);
-    this.state = {
-      imagePosition: DEFAULT_IMAGE_POSITION,
-      elementsPosition: DEFAULT_ELEMENT_POSITION,
-    };
+    this.state = {};
   }
-
-  componentDidMount() {
-    if (window.innerWidth > PARALLAX_LIMIT_WIDTH) {
-      this.headerElement.addEventListener("mousemove", (e: MouseEvent) =>
-        this.parallax(e)
-      );
-      this.headerElement.addEventListener("mouseleave", this.toInitialPosition);
-    }
-  }
-
-  componentWillUnmount() {
-    if (window.innerWidth > PARALLAX_LIMIT_WIDTH) {
-      this.headerElement.removeEventListener("mousemove", (e: MouseEvent) =>
-        this.parallax(e)
-      );
-      this.headerElement.removeEventListener(
-        "mouseleave",
-        this.toInitialPosition
-      );
-    }
-  }
-
-  toInitialPosition = (): void => {
-    this.setState({
-      imagePosition: DEFAULT_IMAGE_POSITION,
-      elementsPosition: DEFAULT_ELEMENT_POSITION,
-    });
-  };
-
-  parallax = (e: MouseEvent): void => {
-    const width = window.innerWidth / 2;
-    const height = this.headerElement.clientHeight / 2;
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    const depth1 = `${100 - (mouseX - width) * 0.01}% ${
-      50 - (mouseY - height) * 0.01
-    }%`;
-    const depth2 = `${100 - (mouseX - width) * 0.02}% ${
-      50 - (mouseY - height) * 0.02
-    }%`;
-    const depth3Param = 100 - (mouseX - width) * 0.02;
-
-    const depth3ImageParam = 100;
-
-    const depth3ElemParam =
-      (depth3Param > 140 ? 140 : depth3Param < 90 ? 90 : depth3Param) - 10;
-
-    const depth3 = `${depth3ElemParam}% ${50 - (mouseY - height) * 0.02}%`;
-
-    const depth3Image = `${depth3ImageParam}% ${
-      50 - (mouseY - height) * 0.02
-    }%`;
-
-    this.setState({
-      imagePosition: `${depth3Image}, ${depth2}, ${depth1}`,
-      elementsPosition: `${depth3}, ${depth2}, ${depth1}`,
-    });
-  };
-
   render() {
     return (
       <div
@@ -105,22 +36,8 @@ export default class Header extends React.Component<
           <Navbar />
         </div>
         <div className={style.header__imageContainer}>
-          <div
-            style={{
-              backgroundPosition: this.state.elementsPosition,
-            }}
-            className={style.header__element}
-          />
-          <div
-            style={
-              window.innerWidth > SCREEN_SIZES.maxPhoneWidth
-                ? {
-                    backgroundPosition: this.state.imagePosition,
-                  }
-                : {}
-            }
-            className={style.header__image}
-          />
+          <div className={style.header__element} />
+          <div className={style.header__image} />
         </div>
       </div>
     );

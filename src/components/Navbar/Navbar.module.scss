@@ -2,23 +2,25 @@
 
 .navbar {
   @include forTabletAndDesktop {
-    margin-left: 5%;
+    position: absolute;
     height: 20%;
-    gap: 2%;
-    width: 100%;
-    overflow: visible;
+    bottom: 0;
+    overflow: hidden;
+    background-color: transparent;
+    border-bottom-left-radius: 13px;
   }
   @include forPhoneOnly {
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
     align-items: flex-end;
+    justify-items: right;
     height: 100%;
     flex-direction: column;
-    border-bottom-right-radius: 13px;
     overflow: hidden;
   }
+  min-width: 100%;
+  border-bottom-right-radius: 13px;
   display: flex;
 }
 
@@ -27,20 +29,21 @@
     column-gap: 8%;
     height: 100%;
     padding-left: 2%;
-    border-left: 5px solid transparent;
     justify-content: flex-start;
     padding-right: 4%;
-    width: 100%;
     max-width: 130px;
+    background-color: $semiTransparentWhite;
   }
-
+  @include forTabletAndDesktop {
+    z-index: 4;
+    background: linear-gradient(transparent, $semiTransparentWhite);
+  }
+  width: 100%;
   display: inline-flex;
-  background-color: $semiTransparentWhite;
   align-items: center;
+  justify-content: center;
+
   &:hover {
-    @include forPhoneOnly {
-      border-left: 5px solid $pinkDark;
-    }
     > .navbarItem__textContainer {
       > .navbarItem__text {
         color: $pinkDark;
@@ -49,11 +52,19 @@
   }
 
   @include forTabletAndDesktop {
+    &:first-of-type {
+      &:hover {
+        border-bottom-left-radius: 13px;
+      }
+    }
+    &:last-of-type {
+      &:hover {
+        border-bottom-right-radius: 13px;
+      }
+    }
     justify-content: center;
-    border-radius: 50px;
     &:not(:hover) {
       min-width: 100px;
-      border-radius: 55px;
       > .navbarItem__textContainer {
         animation: 0.3s ease-in-out forwards shrink;
         > .navbarItem__text {
@@ -62,11 +73,12 @@
       }
     }
     &:hover {
+      margin-left: auto;
+      margin-right: auto;
       > .navbarItem__textContainer {
         pointer-events: none;
         padding-left: 10px;
-        margin-right: 20px;
-        padding-right: 10px;
+        margin-right: 25%;
         animation: 0.3s ease-in-out forwards widen;
         > .navbarItem__text {
           animation: 0.3s ease-in-out forwards fadeIn;
@@ -74,7 +86,7 @@
       }
 
       > .navbarItem__icon {
-        margin-left: 30px;
+        margin-left: 28%;
       }
     }
   }
@@ -123,5 +135,23 @@
   @include forPhoneOnly {
     opacity: 1;
     font-size: 14px;
+  }
+}
+
+.navbarItem__line_active {
+  transition: all 0.6s ease-in-out;
+  position: absolute;
+  background-color: $pinkDark;
+  border-radius: 13px;
+  z-index: 4;
+  @include forTabletAndDesktop {
+    height: 5px;
+    width: calc(100% / 6.2);
+    bottom: 0;
+  }
+  @include forPhoneOnly {
+    width: 5px;
+    height: calc(100% / 6);
+    right: 128px;
   }
 }
