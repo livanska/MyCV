@@ -6,6 +6,7 @@ import Section from "./../Section/Section";
 const HEADER_HIDE_SCROLL_POSITION = 10;
 interface ProfileState {
   currentScrollPosition: number;
+  shouldShowHeader: boolean;
 }
 
 export default class Profile extends React.Component<{}, ProfileState> {
@@ -13,7 +14,10 @@ export default class Profile extends React.Component<{}, ProfileState> {
 
   constructor(props) {
     super(props);
-    this.state = { currentScrollPosition: 0 };
+    this.state = {
+      currentScrollPosition: 0,
+      shouldShowHeader: true,
+    };
   }
 
   setScrollPosition = (): void => {
@@ -33,10 +37,20 @@ export default class Profile extends React.Component<{}, ProfileState> {
     );
   }
 
+  componentDidUpdate(
+    prevProps: Readonly<{}>,
+    prevState: Readonly<ProfileState>
+  ): void {
+    if (this.state.currentScrollPosition !== prevState.currentScrollPosition)
+      this.setState({
+        shouldShowHeader:
+          this.state.currentScrollPosition - prevState.currentScrollPosition >
+          HEADER_HIDE_SCROLL_POSITION,
+      });
+  }
+
   shouldShowHeader = (): boolean =>
-    !IS_MOBILE ||
-    (IS_MOBILE &&
-      this.state.currentScrollPosition < HEADER_HIDE_SCROLL_POSITION);
+    !IS_MOBILE || (IS_MOBILE && this.state.shouldShowHeader);
 
   render(): React.ReactNode {
     return (

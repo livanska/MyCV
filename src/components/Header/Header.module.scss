@@ -12,6 +12,7 @@
   transition: all 0.6s ease-in-out;
   @include forPhoneOnly {
     height: 480px;
+    position: fixed;
   }
 }
 
@@ -122,4 +123,22 @@
       margin-bottom: 15px;
     }
   }
+}
+.headerBackContainer {
+  position: fixed;
+  background-color: white;
+  top: 480px;
+  height: 0;
+  width: 100%;
+  z-index: 3;
+  border-bottom-right-radius: 13px;
+  border-bottom-left-radius: 13px;
+  border-bottom-left-radius: 13px;
+  transition: top 0.6s ease-in-out, height 0.6s ease-in-out;
+}
+.isActive {
+  top: 0;
+  background-color: white;
+  height: 100px;
+  transition: top 0.6s ease-in-out, height 0.5s ease-in-out;
 }
