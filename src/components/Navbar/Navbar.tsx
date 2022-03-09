@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   Bag,
@@ -6,11 +6,12 @@ import {
   Telescope,
   Email,
   Study,
-} from "./../../utils/icons";
-import style from "./Navbar.module.scss";
-import { IS_MOBILE, SECTION_TITLES } from "./../../utils/constants";
-import { MOBILE_HEADER_HEIGHT } from "../Header/Header";
+} from './../../utils/icons';
+import style from './Navbar.module.scss';
+import { IS_MOBILE, SECTION_TITLES } from './../../utils/constants';
+import { MOBILE_HEADER_HEIGHT } from '../Header/Header';
 
+interface INavbarProps {}
 interface INavbarState {
   activeIndex: number;
 }
@@ -46,7 +47,10 @@ const NAVBAR_ITEMS: INavbarItem[] = [
   },
 ];
 
-export default class Navbar extends React.Component<{}, INavbarState> {
+export default class Navbar extends React.Component<
+  INavbarProps,
+  INavbarState
+> {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,8 +77,7 @@ export default class Navbar extends React.Component<{}, INavbarState> {
         {NAVBAR_ITEMS.map(({ icon, title }: INavbarItem, idx: number) => (
           <a
             className={style.navbarItem}
-            onClick={() => this.setState({ activeIndex: idx })}
-          >
+            onClick={() => this.setState({ activeIndex: idx })}>
             <img className={style.navbarItem__icon} src={icon} />
             <div className={style.navbarItem__textContainer}>
               <p className={style.navbarItem__text}>{title}</p>
@@ -84,8 +87,7 @@ export default class Navbar extends React.Component<{}, INavbarState> {
         {this.state.activeIndex != -1 && (
           <span
             className={style.navbarItem__line_active}
-            style={this.getLineActivePositionStyle()}
-          ></span>
+            style={this.getLineActivePositionStyle()}></span>
         )}
       </nav>
     );

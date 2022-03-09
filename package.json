@@ -7,7 +7,7 @@
     "build": "webpack --mode-production",
     "start": "webpack-dev-server --open --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint  \"src/**/*.{js,ts,jsx,tsx}\"",
+    "lint": "eslint  \"src/**/*.{ts,tsx}\"",
     "pretty": "prettier --write"
   },
   "husky": {
@@ -16,10 +16,11 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,ts,jsx,tsx}": [
-      "npm run lint",
-      "nmp run pretty"
-    ]
+    "src/**/*.{ts,tsx}": [
+      "npm run pretty",
+      "eslint --fix --ext .ts,.tsx .",
+      "npm run lint"
+    ], "*.{scss}":["npm run pretty"]
   },
   "repository": {
     "type": "git",
@@ -38,12 +39,13 @@
     "@babel/preset-react": "^7.16.7",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
-    "@typescript-eslint/eslint-plugin": "5.14.0",
-    "@typescript-eslint/parser": "5.14.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.6.0",
     "eslint": "8.10.0",
     "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "^16.1.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",

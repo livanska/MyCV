@@ -1,11 +1,11 @@
-@import "./../../styles/dependencies.scss";
+@import './../../styles/dependencies.scss';
 
 .background {
   width: 100%;
   height: 100vh;
   position: fixed;
   background-size: cover;
-  background-image: url("./../../assets/images/background.jpg");
+  background-image: url('./../../assets/images/background.jpg');
   justify-content: center;
   display: flex;
   overflow: auto;
@@ -17,4 +17,14 @@
   backdrop-filter: blur(7px);
   border-bottom-right-radius: 13px;
   border-bottom-left-radius: 13px;
+}
+.content {
+  height: 100%;
+  width: 100%;
+  margin-top: 110px;
+}
+.barChart__item {
+  background-color: white;
+  border: 1px solid black;
+  height: 30px;
 }

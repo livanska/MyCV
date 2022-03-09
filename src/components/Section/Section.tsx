@@ -1,12 +1,22 @@
-import React from "react";
-import style from "./Section.module.scss";
+import React from 'react';
+import style from './Section.module.scss';
 
 interface ISectionProps {
   title: string;
 }
 
-export default class Section extends React.Component<ISectionProps, {}> {
+interface ISectionState {}
+
+export default class Section extends React.Component<
+  ISectionProps,
+  ISectionState
+> {
   render(): React.ReactNode {
-    return <div className={style.section}>{this.props.children}</div>;
+    return (
+      <div className={style.section}>
+        <h2 className={style.section__title}>{this.props.title}</h2>
+        {this.props.children}
+      </div>
+    );
   }
 }

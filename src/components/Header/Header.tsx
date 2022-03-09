@@ -1,8 +1,8 @@
-import React from "react";
-import style from "./Header.module.scss";
-import Navbar from "./../Navbar/Navbar";
-import { IS_MOBILE } from "../../utils/constants";
-import cn from "classnames";
+import React from 'react';
+import style from './Header.module.scss';
+import Navbar from './../Navbar/Navbar';
+import { IS_MOBILE } from '../../utils/constants';
+import cn from 'classnames';
 interface IHeaderProps {
   shouldShowHeader: boolean;
 }
@@ -42,8 +42,7 @@ export default class Header extends React.Component<
           style={{
             top: this.state.isHeaderVisible ? 0 : -MOBILE_HEADER_HEIGHT + 100,
           }}
-          ref={(elem: HTMLDivElement) => (this.headerElement = elem)}
-        >
+          ref={(elem: HTMLDivElement) => (this.headerElement = elem)}>
           <div className={style.header__infoContainer}>
             <div className={style.header__textContainer}>
               <h1 className={style.header__title}>Liliia Ivanska</h1>
@@ -59,10 +58,9 @@ export default class Header extends React.Component<
             <div
               className={cn(
                 style.headerBackContainer,
-                !this.state.isHeaderVisible && style.isActive
+                !this.state.isHeaderVisible && style.isActive,
               )}
-              onClick={() => this.setState({ isHeaderVisible: true })}
-            ></div>
+              onClick={() => this.setState({ isHeaderVisible: true })}></div>
           )}
         </div>
       </>
