@@ -2,12 +2,11 @@
 {
     "root": true,
     "extends": [
-        "plugin:react/recommended",
-        "airbnb",
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
-        // "plugin:prettier/recommended",
-        // "prettier/@typescript-eslint"
+        "airbnb-typescript",
+        "airbnb/hooks",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "plugin:prettier/recommended"
     ],
     "env": {
         "browser": true,
