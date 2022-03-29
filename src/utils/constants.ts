@@ -13,6 +13,8 @@ export enum SCREEN_SIZES {
   minDesktopWidth = 1200,
 }
 
+export const MOBILE_HEADER_HEIGHT = 480;
+
 const IS_MOBILE = window.innerWidth <= SCREEN_SIZES.maxPhoneWidth;
 const IS_TABLET =
   window.innerWidth > SCREEN_SIZES.maxPhoneWidth &&

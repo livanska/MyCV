@@ -1,15 +1,10 @@
 import React from 'react';
 import style from './Section.module.scss';
+import { ISectionContainerProps, ISectionContainerState } from './types';
 
-interface ISectionProps {
-  title: string;
-}
-
-interface ISectionState {}
-
-export default class Section extends React.Component<
-  ISectionProps,
-  ISectionState
+export default class SectionContainer extends React.Component<
+  ISectionContainerProps,
+  ISectionContainerState
 > {
   render(): React.ReactNode {
     return (
