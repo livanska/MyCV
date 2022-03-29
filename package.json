@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode-production",
+    "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint  \"src/**/*.{ts,tsx}\"",
@@ -20,7 +20,10 @@
       "npm run pretty",
       "eslint --fix --ext .ts,.tsx .",
       "npm run lint"
-    ], "*.{scss}":["npm run pretty"]
+    ],
+    "*.{scss}": [
+      "npm run pretty"
+    ]
   },
   "repository": {
     "type": "git",
@@ -72,6 +75,7 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "webpack-cli": "^4.9.2"
