@@ -1,0 +1,9 @@
+@import './../../styles/dependencies.scss';
+.barChart {
+  &__item {
+    background-color: white;
+    border: 1px solid black;
+    height: 30px;
+    animation: 3s forwards ease-in-out widen;
+  }
+}

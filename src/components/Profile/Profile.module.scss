@@ -10,6 +10,7 @@
   display: flex;
   overflow: auto;
 }
+
 .glassPanel {
   width: 95%;
   height: 230vh;
@@ -17,14 +18,12 @@
   backdrop-filter: blur(7px);
   border-bottom-right-radius: 13px;
   border-bottom-left-radius: 13px;
-}
-.content {
-  height: 100%;
-  width: 100%;
-  margin-top: 110px;
-}
-.barChart__item {
-  background-color: white;
-  border: 1px solid black;
-  height: 30px;
+  &__content {
+    @include forTabletAndDesktop {
+      margin-top: 520px;
+    }
+    height: 100%;
+    width: 100%;
+    margin-top: 110px;
+  }
 }

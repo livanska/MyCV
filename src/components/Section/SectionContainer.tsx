@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Section.module.scss';
+import Section from './Section';
 import { ISectionContainerProps, ISectionContainerState } from './types';
 
 export default class SectionContainer extends React.Component<
@@ -7,11 +7,6 @@ export default class SectionContainer extends React.Component<
   ISectionContainerState
 > {
   render(): React.ReactNode {
-    return (
-      <div className={style.section}>
-        <h2 className={style.section__title}>{this.props.title}</h2>
-        {this.props.children}
-      </div>
-    );
+    return <Section title={this.props.title} content={this.props.children} />;
   }
 }
