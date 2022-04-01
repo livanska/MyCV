@@ -12,31 +12,35 @@ export default class Header extends React.Component<
   render() {
     const { shouldShowHeader, setHeaderVisible }: IHeaderProps = this.props;
     return (
-      <div
+      <header
         className={style.header}
         style={{
           top: shouldShowHeader ? 0 : -MOBILE_HEADER_HEIGHT + 100,
         }}>
-        <div className={style.header__infoContainer}>
-          <div className={style.header__textContainer}>
-            <h1 className={style.header__title}>Liliia Ivanska</h1>
-            <h6 className={style.header__subtitle}>Front-End Developer</h6>
+        <div className={style.header__textWrapper}>
+          <div className={style.header__textWrapper__text}>
+            <h1 className={style.header__textWrapper__text__title}>
+              Liliia Ivanska
+            </h1>
+            <h6 className={style.header__textWrapper__text__subtitle}>
+              Front-End Developer
+            </h6>
           </div>
           <Navbar />
         </div>
-        <div className={style.header__imageContainer}>
-          <div className={style.header__element} />
-          <div className={style.header__image} />
+        <div className={style.header__imageWrapper}>
+          <div className={style.header__imageWrapper__element} />
+          <div className={style.header__imageWrapper__image} />
         </div>
         {IS_MOBILE && (
           <div
             className={cn(
-              style.headerBackContainer,
-              !shouldShowHeader && style.isActive,
+              style.header__backContainer,
+              !shouldShowHeader && style.header__backContainer_active,
             )}
             onClick={() => setHeaderVisible(true)}></div>
         )}
-      </div>
+      </header>
     );
   }
 }

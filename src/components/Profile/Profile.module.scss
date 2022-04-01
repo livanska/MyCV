@@ -1,6 +1,6 @@
 @import './../../styles/dependencies.scss';
 
-.background {
+.profile {
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -9,21 +9,23 @@
   justify-content: center;
   display: flex;
   overflow: auto;
-}
 
-.glassPanel {
-  width: 95%;
-  height: 230vh;
-  background-color: $semiTransparentWhite;
-  backdrop-filter: blur(7px);
-  border-bottom-right-radius: 13px;
-  border-bottom-left-radius: 13px;
-  &__content {
-    @include forTabletAndDesktop {
-      margin-top: 520px;
+  &__glassPanel {
+    width: 95%;
+    height: 230vh;
+    background-color: $semiTransparentWhite;
+    backdrop-filter: blur(7px);
+    border-bottom-right-radius: 13px;
+    border-bottom-left-radius: 13px;
+
+    &__content {
+      height: 100%;
+      width: 100%;
+      margin-top: 110px;
+
+      @include forTabletAndDesktop {
+        margin-top: 520px;
+      }
     }
-    height: 100%;
-    width: 100%;
-    margin-top: 110px;
   }
 }

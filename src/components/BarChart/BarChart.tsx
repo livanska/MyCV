@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './BarChart.module.scss';
-import { IBarChartProps, IBarChartState } from './types';
+import { IBarChartItem, IBarChartProps, IBarChartState } from './types';
 
 export default class Section extends React.Component<
   IBarChartProps,
@@ -10,20 +10,15 @@ export default class Section extends React.Component<
     const chartData = this.props.items;
     return (
       <>
-        {chartData.map(a => (
-          <div>
-            <p>{a.name}</p>
+        {chartData.map((skill: IBarChartItem, idx: number) => (
+          <div key={idx}>
+            <p>{skill.name}</p>
             <div
-              style={{ maxWidth: `${a.percent}%` }}
+              style={{ maxWidth: `${skill.percent}%` }}
               className={style.barChart__item}></div>
-            <span>{`${a.percent}%`}</span>
+            <span>{`${skill.percent}%`}</span>
           </div>
         ))}
-        {/* {items.additional.map(a => (
-          <div>
-            <p>{a}</p>
-          </div>
-        ))} */}
       </>
     );
   }

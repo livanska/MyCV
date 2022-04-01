@@ -13,10 +13,10 @@ export default class Profile extends React.Component<
     const { shouldShowHeader, skills, backgroundElementRef }: IProfileProps =
       this.props;
     return (
-      <div className={style.background} ref={backgroundElementRef}>
+      <div className={style.profile} ref={backgroundElementRef}>
         <Header shouldShowHeader={shouldShowHeader} />
-        <div className={style.glassPanel}>
-          <div className={style.glassPanel__content}>
+        <div className={style.profile__glassPanel}>
+          <div className={style.profile__glassPanel__content}>
             <Section title={SECTION_TITLES.skills}>
               <BarChart data={skills.barChart} />
             </Section>

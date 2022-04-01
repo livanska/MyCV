@@ -4,13 +4,12 @@
   // top: 50px;
   // width: 95%;
   // position: absolute;
-}
-.section__title {
-  background-color: $white;
-  width: 100%;
-
-  line-height: 100px;
-  font-size: 56px;
-  padding-left: 10%;
-  color: rgb(51, 43, 51);
+  &__title {
+    background-color: $white;
+    width: 100%;
+    line-height: 100px;
+    font-size: 56px;
+    padding-left: 10%;
+    color: rgb(51, 43, 51);
+  }
 }
