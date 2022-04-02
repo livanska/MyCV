@@ -13,7 +13,7 @@ export default class Navbar extends React.Component<
     return (
       <nav className={style.navbar}>
         {items.map(({ icon, title }: INavbarItem, idx: number) => (
-          <a
+          <li
             key={idx}
             className={style.navbar__item}
             onClick={() => setActiveIndex(idx)}>
@@ -21,7 +21,7 @@ export default class Navbar extends React.Component<
             <div className={style.navbar__item__textWrapper}>
               <p className={style.navbar__item__textWrapper__text}>{title}</p>
             </div>
-          </a>
+          </li>
         ))}
         {activeIndex != -1 && (
           <span className={style.navbar__activeLine} style={activeStyle}></span>

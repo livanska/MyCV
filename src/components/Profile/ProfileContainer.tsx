@@ -12,7 +12,7 @@ const Skills = {
       percent: 70,
     },
     {
-      name: 'HTML,CSS(SASS,SCSS)',
+      name: 'HTML, CSS(SASS, SCSS)',
       percent: 70,
     },
     {
@@ -24,7 +24,7 @@ const Skills = {
       percent: 60,
     },
     {
-      name: 'Database development(MSSQL)',
+      name: IS_MOBILE ? 'MSSQL' : 'Database development(MSSQL)',
       percent: 30,
     },
     {

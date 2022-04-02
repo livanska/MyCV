@@ -19,6 +19,17 @@ export default class Profile extends React.Component<
           <div className={style.profile__glassPanel__content}>
             <Section title={SECTION_TITLES.skills}>
               <BarChart data={skills.barChart} />
+              <h3 className={style.profile__glassPanel__content__subtitle}>
+                Additional:
+              </h3>
+              <ul className={style.profile__glassPanel__content__list}>
+                {skills.additional.map((skill: string) => (
+                  <li
+                    className={style.profile__glassPanel__content__list__item}>
+                    {skill}
+                  </li>
+                ))}
+              </ul>
             </Section>
           </div>
         </div>

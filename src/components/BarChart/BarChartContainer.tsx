@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  IBarChartContainerProps,
-  IBarChartContainerState,
-  IBarChartItem,
-} from './types';
+import { IBarChartContainerProps, IBarChartContainerState } from './types';
 import BarChart from './BarChart';
 
 export default class SectionContainer extends React.Component<

@@ -1,9 +1,77 @@
 @import './../../styles/dependencies.scss';
-.barChart {
+.chart {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-left: 2px solid $pinkDark;
+  margin-left: 20px;
+  margin-top: 20px;
+
+  @include forTabletAndDesktop {
+    margin-left: 40px;
+    border-width: 4px;
+  }
+
+  &__title {
+    font-weight: bold;
+    line-height: 25px;
+    font-size: 28px;
+    padding-left: 15px;
+    @include forTabletAndDesktop {
+      font-size: 36px;
+      line-height: 50px;
+      padding-left: 20px;
+    }
+  }
+
   &__item {
-    background-color: white;
-    border: 1px solid black;
-    height: 30px;
-    animation: 3s forwards ease-in-out widen;
+    display: flex;
+    align-items: center;
+
+    &__column {
+      z-index: 2;
+      align-items: center;
+      background-color: white;
+      box-shadow: 8px 0px 10px 0px rgba(162, 162, 162, 0.096);
+      border: 1px solid $lightGrey;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      height: 40px;
+      animation: 3s forwards ease-in-out widen;
+      justify-content: center;
+
+      @include forTabletAndDesktop {
+        height: 60px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      &__title {
+        overflow: hidden;
+        white-space: nowrap;
+        padding-left: 10px;
+        display: flex;
+        line-height: 40px;
+
+        @include forTabletAndDesktop {
+          line-height: 60px;
+          padding-left: 20px;
+        }
+      }
+    }
+
+    &__percent {
+      padding-left: 2%;
+      display: flex;
+      line-height: 30px;
+      opacity: 0;
+      animation: 0.5s 2s forwards ease-in-out slideFromLeft;
+
+      @include forTabletAndDesktop {
+        padding-left: 15px;
+      }
+    }
   }
 }
