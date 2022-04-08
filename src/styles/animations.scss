@@ -47,3 +47,21 @@
     transform: translateX(0%);
   }
 }
+
+@keyframes higher {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes lower {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0;
+  }
+}

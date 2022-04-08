@@ -10,7 +10,7 @@ export default class Section extends React.Component<
     const chartData = this.props.items;
     return (
       <div className={style.chart}>
-        <p className={style.chart__title}>Basic:</p>
+        <h3 className={style.chart__title}>Basic:</h3>
         {chartData.map((skill: IBarChartItem, idx: number) => (
           <div key={idx} className={style.chart__item}>
             <div

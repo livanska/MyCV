@@ -1,0 +1,176 @@
+@import './../../styles/dependencies.scss';
+
+.card {
+  width: 45%;
+  background-color: white;
+  border-radius: 13px;
+  flex-direction: row;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px;
+  perspective: 600px;
+
+  @include forPhoneOnly {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    align-items: center;
+    width: 90%;
+    flex-direction: column;
+  }
+
+  @include forTabletOnly {
+    width: 75%;
+    min-width: 520px;
+  }
+
+  &__logoContainer {
+    position: absolute;
+    border-radius: 13px;
+    cursor: pointer;
+
+    @include forTabletAndDesktop {
+      width: 190px;
+      height: 100%;
+    }
+
+    @include forPhoneOnly {
+      width: 100%;
+      height: 200px;
+    }
+
+    &__description {
+      font-size: 18px;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @include forTabletAndDesktop {
+        width: 0%;
+        height: 100%;
+        margin-left: 200px;
+        border-bottom-right-radius: 13px;
+        border-top-right-radius: 13px;
+      }
+
+      @include forPhoneOnly {
+        width: 100%;
+        height: 0%;
+        margin-top: 200px;
+        border-bottom-right-radius: 13px;
+        border-bottom-left-radius: 13px;
+      }
+
+      & p {
+        padding: 15px;
+        padding-top: 0px;
+      }
+      & h5 {
+        text-align: center;
+        font-size: 20px;
+      }
+    }
+    &:hover {
+      @include forTabletAndDesktop {
+        width: 100%;
+      }
+      @include forPhoneOnly {
+        height: 100%;
+      }
+    }
+
+    &:hover & {
+      &__description {
+        @include forTabletAndDesktop {
+          animation: 0.3s ease-in-out forwards widenCard;
+        }
+        @include forPhoneOnly {
+          animation: 0.3s ease-in-out forwards higherCard;
+        }
+
+        & p {
+          backdrop-filter: blur(10px);
+          animation: 1s ease-in-out forwards fadeIn;
+        }
+        & h5 {
+          animation: 1s ease-in-out forwards fadeIn;
+        }
+      }
+    }
+    &:not(:hover) & {
+      &__description {
+        @include forTabletAndDesktop {
+          animation: 0.3s ease-in-out forwards shrink;
+        }
+        @include forPhoneOnly {
+          animation: 0.3s ease-in-out forwards lower;
+        }
+
+        & p {
+          display: none;
+          animation: 0.1s ease-in-out forwards fadeOut;
+        }
+        & h5 {
+          display: none;
+          animation: 0.1s ease-in-out forwards fadeOut;
+        }
+      }
+    }
+  }
+  &__logo {
+    margin: 30px;
+    border-radius: 50%;
+    height: 150px;
+    max-width: 150px;
+    @include forTabletAndDesktop {
+      margin-right: 0px;
+    }
+  }
+  &__content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include forPhoneOnly {
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    @include forTabletAndDesktop {
+      padding-left: 40px;
+    }
+
+    &__headings {
+      flex-direction: column;
+      display: flex;
+      & h3 {
+        font-weight: bolder;
+        font-size: 32px;
+      }
+      & h5 {
+        font-size: 26px;
+      }
+      & p {
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+  }
+}
+@keyframes widenCard {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(100% - 200px);
+  }
+}
+
+@keyframes higherCard {
+  from {
+    height: 0;
+  }
+  to {
+    height: calc(100% - 210px);
+  }
+}

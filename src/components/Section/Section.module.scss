@@ -1,9 +1,7 @@
 @import './../../styles/dependencies.scss';
 .section {
-  // height: 100%;
-  // top: 50px;
-  // width: 95%;
-  // position: absolute;
+  margin-bottom: 3%;
+
   &__title {
     background-color: $white;
     width: 100%;

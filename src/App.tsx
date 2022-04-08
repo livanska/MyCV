@@ -19,8 +19,10 @@ export default class App extends React.Component {
   - Change primary colors;
   - Convert icons to font to change color;
   - Navbar alike icons scroll locations under subtitle;
+  - Education card location icon;
+  - Section titles design;
 
   ISSUES
-  - Github pages deploy return white screen;
+  - Github pages deploy return white screen; - DONE 
   - Context API for ?
 */

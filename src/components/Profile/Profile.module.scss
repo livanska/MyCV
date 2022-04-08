@@ -27,6 +27,24 @@
         margin-top: 520px;
       }
 
+      &__grid {
+        margin-top: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        display: flex;
+        grid-row: auto;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+        row-gap: 15px;
+        column-gap: 30px;
+        flex-wrap: wrap;
+        @include forPhoneOnly {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+      }
+
       &__subtitle {
         margin-top: 20px;
         margin-bottom: 5px;
