@@ -1,0 +1,30 @@
+@import './../../styles/dependencies.scss';
+.grid {
+  margin-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  grid-row: auto;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  row-gap: 30px;
+  column-gap: 30px;
+  flex-wrap: wrap;
+  @include forPhoneOnly {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  @include forDesktopOnly {
+    row-gap: 0px;
+    align-items: flex-start;
+  }
+
+  &__timeline {
+    height: 28%;
+    position: absolute;
+    width: 10px;
+    border-radius: 13px;
+    background-color: $pinkDark;
+  }
+}

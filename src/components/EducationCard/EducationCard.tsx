@@ -22,6 +22,7 @@ export default class EducationCard extends React.Component<
     }: IEducationCardProps = this.props;
     return (
       <div className={style.card}>
+        <span className={style.card__cardLine} />
         <div className={style.card__logoContainer}>
           <div className={style.card__logoContainer__description}>
             <h5>{location}</h5>

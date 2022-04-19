@@ -23,6 +23,29 @@
     min-width: 520px;
   }
 
+  @include forDesktopOnly {
+    &__cardLine {
+      position: absolute;
+      top: 50%;
+      width: 5%;
+      height: 10px;
+      background-color: $pinkDark;
+    }
+    &:nth-of-type(odd) {
+      margin-top: 100px;
+    }
+    &:nth-of-type(odd) & {
+      &__cardLine {
+        left: -5%;
+      }
+    }
+    &:nth-of-type(even) & {
+      &__cardLine {
+        right: -5%;
+      }
+    }
+  }
+
   &__logoContainer {
     position: absolute;
     border-radius: 13px;
