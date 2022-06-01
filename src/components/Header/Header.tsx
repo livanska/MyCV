@@ -4,13 +4,11 @@ import Navbar from '../Navbar/NavbarContainer';
 import { IS_MOBILE, MOBILE_HEADER_HEIGHT } from '../../utils/constants';
 import cn from 'classnames';
 import { IHeaderProps, IHeaderState } from './types';
+import { withTranslation } from 'react-i18next';
 
-export default class Header extends React.Component<
-  IHeaderProps,
-  IHeaderState
-> {
+class Header extends React.Component<IHeaderProps, IHeaderState> {
   render() {
-    const { shouldShowHeader, setHeaderVisible }: IHeaderProps = this.props;
+    const { shouldShowHeader, t, setHeaderVisible }: IHeaderProps = this.props;
     return (
       <header
         className={style.header}
@@ -20,10 +18,10 @@ export default class Header extends React.Component<
         <div className={style.header__textWrapper}>
           <div className={style.header__textWrapper__text}>
             <h1 className={style.header__textWrapper__text__title}>
-              Liliia Ivanska
+              {t('name')}
             </h1>
             <h6 className={style.header__textWrapper__text__subtitle}>
-              Front-End Developer
+              {t('position')}
             </h6>
           </div>
           <Navbar />
@@ -44,3 +42,4 @@ export default class Header extends React.Component<
     );
   }
 }
+export default withTranslation()(Header);

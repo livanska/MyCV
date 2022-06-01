@@ -1,4 +1,5 @@
 import { SECTION_TITLES } from './../../utils/constants';
+import { ITranslation } from './../types';
 export interface INavbarContainerProps {}
 
 export interface INavbarContainerState {
@@ -10,7 +11,7 @@ export interface INavbarItem {
   title: SECTION_TITLES;
 }
 
-export interface INavbarProps {
+export interface INavbarProps extends ITranslation {
   items: INavbarItem[];
   activeIndex: number;
   setActiveIndex(activeIndex: number): void;

@@ -3,8 +3,9 @@ import { IEducationCardProps, IEducationCardState } from './types';
 import style from './EducationCard.module.scss';
 import cn from 'classnames';
 import { IS_MOBILE } from '../../utils/constants';
+import { withTranslation } from 'react-i18next';
 
-export default class EducationCard extends React.Component<
+class EducationCard extends React.Component<
   IEducationCardProps,
   IEducationCardState
 > {
@@ -48,3 +49,4 @@ export default class EducationCard extends React.Component<
     );
   }
 }
+export default withTranslation()(EducationCard);

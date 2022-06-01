@@ -1,4 +1,5 @@
 import { LegacyRef } from 'react';
+import { ITranslation } from '../types';
 
 export interface IProfileContainerState {
   currentScrollPosition: number;
@@ -9,7 +10,7 @@ export interface IProfileContainerProps {}
 
 export interface IProfileState {}
 
-export interface IProfileProps {
+export interface IProfileProps extends ITranslation {
   shouldShowHeader: boolean;
   skills: {
     barChart: { name: string; percent: number }[];

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ITranslation } from '../types';
 
 export interface ISectionContainerProps {
   title: string;
@@ -6,7 +7,7 @@ export interface ISectionContainerProps {
 
 export interface ISectionContainerState {}
 
-export interface ISectionProps {
+export interface ISectionProps extends ITranslation {
   title: string;
   content: React.ReactNode;
 }

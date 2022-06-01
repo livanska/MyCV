@@ -1,3 +1,4 @@
+import { ITranslation } from './../types';
 export interface IEducationCardContainerProps {
   name: string;
   image: string;
@@ -12,7 +13,7 @@ export interface IEducationCardContainerProps {
 
 export interface IEducationCardContainerState {}
 
-export interface IEducationCardProps {
+export interface IEducationCardProps extends ITranslation {
   name: string;
   image: string;
   location: string;

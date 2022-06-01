@@ -1,4 +1,4 @@
-import React from 'react';
+import { ITranslation } from './../types';
 
 export interface IBarChartContainerProps {
   data: IBarChartItem[];
@@ -6,7 +6,7 @@ export interface IBarChartContainerProps {
 
 export interface IBarChartContainerState {}
 
-export interface IBarChartProps {
+export interface IBarChartProps extends ITranslation {
   items: IBarChartItem[];
 }
 

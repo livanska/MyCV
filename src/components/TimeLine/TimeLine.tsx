@@ -3,10 +3,8 @@ import style from './TimeLine.module.scss';
 import { ITimeLineProps, ITimeLineState } from './types';
 import EducationCard from './../EducationCard/EducationCardContainer';
 import { IEducationCardContainerProps } from './../EducationCard/types';
-export default class TimeLine extends React.Component<
-  ITimeLineProps,
-  ITimeLineState
-> {
+import { withTranslation } from 'react-i18next';
+class TimeLine extends React.Component<ITimeLineProps, ITimeLineState> {
   render(): React.ReactNode {
     const { educationAndExperience }: ITimeLineProps = this.props;
     return (
@@ -19,3 +17,4 @@ export default class TimeLine extends React.Component<
     );
   }
 }
+export default withTranslation()(TimeLine);

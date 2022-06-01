@@ -1,17 +1,15 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import style from './BarChart.module.scss';
 import { IBarChartItem, IBarChartProps, IBarChartState } from './types';
 
-export default class Section extends React.Component<
-  IBarChartProps,
-  IBarChartState
-> {
+class BarChart extends React.Component<IBarChartProps, IBarChartState> {
   render(): React.ReactNode {
-    const chartData = this.props.items;
+    const { items, t } = this.props;
     return (
       <div className={style.chart}>
-        <h3 className={style.chart__title}>Basic:</h3>
-        {chartData.map((skill: IBarChartItem, idx: number) => (
+        <h3 className={style.chart__title}>{t('skills.basic')}:</h3>
+        {items.map((skill: IBarChartItem, idx: number) => (
           <div key={idx} className={style.chart__item}>
             <div
               style={{ maxWidth: `${skill.percent}%` }}
@@ -30,3 +28,4 @@ export default class Section extends React.Component<
     );
   }
 }
+export default withTranslation()(BarChart);

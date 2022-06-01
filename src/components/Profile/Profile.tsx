@@ -11,6 +11,7 @@ import TimeLine from './../TimeLine/TimeLine';
 import GlobalLogicLogo from '../../assets/images/globallogic-logo.jpg';
 import IncoraLogo from '../../assets/images/incora-logo.png';
 import NULPLogo from '../../assets/images/nulp-logo.jpg';
+import { withTranslation } from 'react-i18next';
 
 const EducationAndExperience = [
   {
@@ -63,12 +64,10 @@ const EducationAndExperience = [
       'Lviv Polytechnic National University is the oldest technical higher educational institution in Ukraine and East Europe. It was founded in 1816. University consists of 17 institutes, more than 100 departments; autonomous, additional and general subdivisions.',
   },
 ];
-export default class Profile extends React.Component<
-  IProfileProps,
-  IProfileState
-> {
+
+class Profile extends React.Component<IProfileProps, IProfileState> {
   render(): React.ReactNode {
-    const { shouldShowHeader, skills, backgroundElementRef }: IProfileProps =
+    const { shouldShowHeader, t, skills, backgroundElementRef }: IProfileProps =
       this.props;
     return (
       <div className={style.profile} ref={backgroundElementRef}>
@@ -78,7 +77,7 @@ export default class Profile extends React.Component<
             <Section title={SECTION_TITLES.skills}>
               <BarChart data={skills.barChart} />
               <h3 className={style.profile__glassPanel__content__subtitle}>
-                Additional:
+                {t('skills.additional')}
               </h3>
               <ul className={style.profile__glassPanel__content__list}>
                 {skills.additional.map((skill: string) => (
@@ -107,3 +106,4 @@ export default class Profile extends React.Component<
     );
   }
 }
+export default withTranslation()(Profile);
