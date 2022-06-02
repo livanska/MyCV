@@ -12,6 +12,7 @@ import GlobalLogicLogo from '../../assets/images/globallogic-logo.jpg';
 import IncoraLogo from '../../assets/images/incora-logo.png';
 import NULPLogo from '../../assets/images/nulp-logo.jpg';
 import { withTranslation } from 'react-i18next';
+import { Settings } from '../../utils/icons';
 
 const EducationAndExperience = [
   {

@@ -5,10 +5,17 @@ import { IS_MOBILE, MOBILE_HEADER_HEIGHT } from '../../utils/constants';
 import cn from 'classnames';
 import { IHeaderProps, IHeaderState } from './types';
 import { withTranslation } from 'react-i18next';
+import { Settings } from '../../utils/icons';
 
 class Header extends React.Component<IHeaderProps, IHeaderState> {
   render() {
-    const { shouldShowHeader, t, setHeaderVisible }: IHeaderProps = this.props;
+    const {
+      shouldShowHeader,
+      t,
+      setHeaderVisible,
+      changeLanguage,
+      currentLanguage,
+    }: IHeaderProps = this.props;
     return (
       <header
         className={style.header}
@@ -20,8 +27,15 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
             <h1 className={style.header__textWrapper__text__title}>
               {t('name')}
             </h1>
+
             <h6 className={style.header__textWrapper__text__subtitle}>
               {t('position')}
+              <img
+                className={style.header__icon}
+                src={Settings}
+                onClick={changeLanguage}
+              />{' '}
+              {currentLanguage.toUpperCase()}
             </h6>
           </div>
           <Navbar />

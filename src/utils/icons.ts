@@ -4,5 +4,6 @@ import Email from './../assets/icons/email.svg';
 import GraphBar from './../assets/icons/graph-bar.svg';
 import Telescope from './../assets/icons/telescope.svg';
 import Study from './../assets/icons/study.svg';
+import Settings from './../assets/icons/settings.svg';
 
-export { Bag, Box, Email, Telescope, GraphBar, Study };
+export { Bag, Box, Email, Telescope, GraphBar, Study, Settings };

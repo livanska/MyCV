@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import { IHeaderContainerProps, IHeaderContainerState } from './types';
+import i18n from '../../localization/i18n';
+import { LANGUAGES } from '../../localization/data';
 
 export default class HeaderContainer extends React.Component<
   IHeaderContainerProps,
@@ -14,6 +16,13 @@ export default class HeaderContainer extends React.Component<
       isHeaderVisible: this.props.shouldShowHeader,
     };
   }
+
+  changeLanguage = (): void => {
+    const currentLanguage = i18n.language;
+    i18n.changeLanguage(
+      currentLanguage === LANGUAGES.en ? LANGUAGES.ua : LANGUAGES.en,
+    );
+  };
 
   componentDidUpdate(prevProps: Readonly<IHeaderContainerProps>) {
     if (
@@ -29,6 +38,8 @@ export default class HeaderContainer extends React.Component<
   render() {
     return (
       <Header
+        currentLanguage={i18n.language}
+        changeLanguage={this.changeLanguage}
         shouldShowHeader={this.state.isHeaderVisible}
         setHeaderVisible={this.handleHeaderVisibleChange}
       />

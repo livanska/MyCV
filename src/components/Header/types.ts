@@ -10,6 +10,8 @@ export interface IHeaderContainerState {
 export interface IHeaderProps extends ITranslation {
   shouldShowHeader: boolean;
   setHeaderVisible(isVisible: boolean): void;
+  currentLanguage: string;
+  changeLanguage(): void;
 }
 
 export interface IHeaderState {}

@@ -1,3 +1,8 @@
+export enum LANGUAGES {
+  en = 'en',
+  ua = 'ua',
+}
+
 const resources = {
   en: {
     translation: {
