@@ -150,7 +150,8 @@
       margin-right: 0px;
     }
   }
-  &__content {
+  &__content,
+  .content {
     padding: 10px;
     display: flex;
     flex-direction: column;

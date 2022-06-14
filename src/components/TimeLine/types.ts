@@ -1,7 +1,4 @@
 import { IEducationCardContainerProps } from './../EducationCard/types';
-import { ITranslation } from '../types';
 export interface ITimeLineProps {
-  educationAndExperience: IEducationCardContainerProps[];
+  data: IEducationCardContainerProps[];
 }
-
-export interface ITimeLineState {}

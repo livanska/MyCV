@@ -1,0 +1,20 @@
+ {
+        "translation": {
+            "name": "Лілія Іванська",
+            "position": "Front-End Розробник",
+            "titles": {
+                "skills": "Навчики",
+                "education": "Освіта",
+                "projects": "Проекти",
+                "experience": "Досвід",
+                "interests": "Інтереси",
+                "contacts": "Контакти",
+                "experience & education": "Досвід & Освіта"
+                },
+            "skills": {
+            "basic": "Основні",
+            "additional": "Додатково"
+        }
+    }
+  }
+

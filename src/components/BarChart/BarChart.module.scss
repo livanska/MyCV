@@ -26,11 +26,13 @@
     }
   }
 
-  &__item {
+  &__item,
+  .item {
     display: flex;
     align-items: center;
 
-    &__column {
+    &__column,
+    .column {
       z-index: 2;
       align-items: center;
       background-color: white;

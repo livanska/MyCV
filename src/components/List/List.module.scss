@@ -1,0 +1,33 @@
+@import './../../styles/dependencies.scss';
+
+.subtitle {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  line-height: 25px;
+  font-size: 26px;
+  padding-left: 15px;
+
+  @include forTabletAndDesktop {
+    font-size: 36px;
+    line-height: 50px;
+    padding-left: 32px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  margin-left: 16px;
+
+  &__item {
+    margin-left: 20px;
+    list-style-type: circle;
+    //list-style-image: url('image.gif');
+
+    @include forTabletAndDesktop {
+      margin-left: 40px;
+    }
+  }
+}

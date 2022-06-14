@@ -1,17 +1,10 @@
+import { LegacyRef } from 'react';
 import { ITranslation } from './../types';
-export interface IHeaderContainerProps {
+export interface IHeaderContainerProps extends ITranslation {}
+export interface IHeaderProps {
   shouldShowHeader: boolean;
+  setHeaderVisible(): void;
+  topPosition: number;
+  name: string;
+  position: string;
 }
-
-export interface IHeaderContainerState {
-  isHeaderVisible: boolean;
-}
-
-export interface IHeaderProps extends ITranslation {
-  shouldShowHeader: boolean;
-  setHeaderVisible(isVisible: boolean): void;
-  currentLanguage: string;
-  changeLanguage(): void;
-}
-
-export interface IHeaderState {}

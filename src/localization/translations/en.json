@@ -1,0 +1,19 @@
+ {
+        "translation": {
+        "name": "Liliia Ivanska",
+        "position": "Front-End Developer",
+        "titles": {
+            "skills": "Skills",
+            "education": "Education",
+            "projects": "Projects",
+            "experience": "Experience",
+            "interests": "Interests",
+            "contacts": "Contacts",
+            "experience & education": "Experience & Education"
+        },
+        "skills": {
+            "basic": "Basic",
+            "additional": "Additional"
+      }
+    }
+  }

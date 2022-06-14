@@ -1,21 +1,13 @@
-import React, { MouseEvent, MouseEventHandler } from 'react';
-import { IEducationCardProps, IEducationCardState } from './types';
+import React from 'react';
+import { IEducationCardProps } from './types';
 import style from './EducationCard.module.scss';
-import cn from 'classnames';
-import { IS_MOBILE } from '../../utils/constants';
-import { withTranslation } from 'react-i18next';
-
-class EducationCard extends React.Component<
-  IEducationCardProps,
-  IEducationCardState
-> {
+export default class EducationCard extends React.Component<IEducationCardProps> {
   render(): React.ReactNode {
     const {
       name,
       image,
       location,
-      startDate,
-      endDate,
+      duration,
       about,
       descriptionTitle,
       topics,
@@ -31,17 +23,16 @@ class EducationCard extends React.Component<
           </div>
         </div>
         <img className={style.card__logo} src={image} />
-
         <div className={style.card__content}>
-          <div className={style.card__content__headings}>
+          <div className={style.content__headings}>
             <h3>{name}</h3>
             <h5>
               <a href={link}>{location}</a>
             </h5>
-            <p>{`${startDate} - ${endDate ? endDate : 'NOW'}`}</p>
+            <p>{duration}</p>
           </div>
           <p>{descriptionTitle}</p>
-          <ul className={style.card__content__list}>
+          <ul className={style.content__list}>
             <span>{topics}</span>
           </ul>
         </div>
@@ -49,4 +40,3 @@ class EducationCard extends React.Component<
     );
   }
 }
-export default withTranslation()(EducationCard);

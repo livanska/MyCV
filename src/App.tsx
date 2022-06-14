@@ -1,6 +1,6 @@
 import React from 'react';
+import Profile from './components/Profile';
 import './style.scss';
-import Profile from './components/Profile/ProfileContainer';
 
 export default class App extends React.Component {
   render(): React.ReactNode {

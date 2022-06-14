@@ -1,13 +1,11 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
+import { INavbarItem, INavbarProps } from './types';
 import style from './Navbar.module.scss';
-import { INavbarItem, INavbarProps, INavbarState } from './types';
 
-class Navbar extends React.Component<INavbarProps, INavbarState> {
+export default class Navbar extends React.Component<INavbarProps> {
   render(): React.ReactNode {
-    const { items, activeStyle, t, activeIndex, setActiveIndex }: INavbarProps =
+    const { items, activeStyle, activeIndex, setActiveIndex }: INavbarProps =
       this.props;
-
     return (
       <nav className={style.navbar}>
         {items.map(({ icon, title }: INavbarItem, idx: number) => (
@@ -17,9 +15,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
             onClick={() => setActiveIndex(idx)}>
             <img className={style.navbar__item__icon} src={icon} />
             <div className={style.navbar__item__textWrapper}>
-              <p className={style.navbar__item__textWrapper__text}>
-                {t(`titles.${title.toLowerCase()}`)}
-              </p>
+              <p className={style.navbar__item__textWrapper__text}>{title}</p>
             </div>
           </li>
         ))}
@@ -30,4 +26,3 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
     );
   }
 }
-export default withTranslation()(Navbar);

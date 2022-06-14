@@ -1,48 +1,38 @@
 import React from 'react';
-import style from './Header.module.scss';
-import Navbar from '../Navbar/NavbarContainer';
-import { IS_MOBILE, MOBILE_HEADER_HEIGHT } from '../../utils/constants';
 import cn from 'classnames';
-import { IHeaderProps, IHeaderState } from './types';
-import { withTranslation } from 'react-i18next';
-import { Settings } from '../../utils/icons';
-
-class Header extends React.Component<IHeaderProps, IHeaderState> {
+import Navbar from '../Navbar';
+import LanguageSwitch from '../LanguageSwitch';
+import { IS_MOBILE } from '../../utils/constants';
+import { IHeaderProps } from './types';
+import style from './Header.module.scss';
+export default class Header extends React.Component<IHeaderProps> {
   render() {
     const {
+      name,
+      position,
       shouldShowHeader,
-      t,
       setHeaderVisible,
-      changeLanguage,
-      currentLanguage,
+      topPosition,
     }: IHeaderProps = this.props;
     return (
       <header
         className={style.header}
         style={{
-          top: shouldShowHeader ? 0 : -MOBILE_HEADER_HEIGHT + 100,
+          top: topPosition,
         }}>
         <div className={style.header__textWrapper}>
-          <div className={style.header__textWrapper__text}>
-            <h1 className={style.header__textWrapper__text__title}>
-              {t('name')}
-            </h1>
-
-            <h6 className={style.header__textWrapper__text__subtitle}>
-              {t('position')}
-              <img
-                className={style.header__icon}
-                src={Settings}
-                onClick={changeLanguage}
-              />{' '}
-              {currentLanguage.toUpperCase()}
+          <div className={style.textWrapper__text}>
+            <h1 className={style.text__title}>{name}</h1>
+            <h6 className={style.text__subtitle}>
+              {position}
+              <LanguageSwitch style={style.header__icon} />
             </h6>
           </div>
           <Navbar />
         </div>
         <div className={style.header__imageWrapper}>
-          <div className={style.header__imageWrapper__element} />
-          <div className={style.header__imageWrapper__image} />
+          <div className={style.imageWrapper__element} />
+          <div className={style.imageWrapper__image} />
         </div>
         {IS_MOBILE && (
           <div
@@ -50,10 +40,9 @@ class Header extends React.Component<IHeaderProps, IHeaderState> {
               style.header__backContainer,
               !shouldShowHeader && style.header__backContainer_active,
             )}
-            onClick={() => setHeaderVisible(true)}></div>
+            onClick={setHeaderVisible}></div>
         )}
       </header>
     );
   }
 }
-export default withTranslation()(Header);

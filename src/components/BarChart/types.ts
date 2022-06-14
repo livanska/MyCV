@@ -1,17 +1,11 @@
 import { ITranslation } from './../types';
-
-export interface IBarChartContainerProps {
+export interface IBarChartContainerProps extends ITranslation {
   data: IBarChartItem[];
 }
-
-export interface IBarChartContainerState {}
-
-export interface IBarChartProps extends ITranslation {
+export interface IBarChartProps {
   items: IBarChartItem[];
+  title: string;
 }
-
-export interface IBarChartState {}
-
 export interface IBarChartItem {
   name: string;
   percent: number;
